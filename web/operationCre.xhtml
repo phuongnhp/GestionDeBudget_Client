@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/template.xhtml">
+
+    <ui:define name="content">
+        #{operationBean.init()}
+        <h:form>
+        <p:outputLabel value="Label" />
+        <p:inputText value="#{operationBean.opt.label}"/>
+        <br/>
+        <p:outputLabel value="Categorie" />
+        <p:selectOneMenu value="#{operationBean.opt.categorie}" style="width:125px">
+            <f:selectItems value="#{operationBean.cats}" />
+        </p:selectOneMenu>
+        <br/>
+        <p:outputLabel value="Date" />
+        <p:calendar value="#{operationBean.opt.dateOp}" />
+        <br/>
+        <p:outputLabel value="Montant" />
+        <p:inputText value="#{operationBean.opt.montant}"/>
+        <br/>
+        <p:outputLabel value="Montant prévu" />
+        <p:inputText value="#{operationBean.opt.montantPrevu}"/>
+        <br/>
+        <p:outputLabel value="Commentaire" />
+        <p:inputText value="#{operationBean.opt.commentaire}"/>
+        <br/>
+        <p:commandButton value="Enregistrer" action="#{operationBean.creer()}"/>
+        <br/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

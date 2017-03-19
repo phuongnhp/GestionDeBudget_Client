@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/src/java/jsf/msg_fr.properties</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/src/java/applicationContextSecure.xml</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/build/generated-sources/jax-ws/service/budget/OperationDetail.java</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/web/operationCre.xhtml</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/src/java/entite/OperationDetailClient.java</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/src/java/jsf/UserBean.java</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/web/templates/footer.xhtml</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/web/operationMod.xhtml</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/src/java/jsf/msg.properties</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/web/monBudget.xhtml</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/web/resources/css/style.css</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/web/templates/template.xhtml</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/src/java/jsf/LangueBean.java</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/src/java/jsf/msg_en.properties</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/src/java/jsf/DataBean.java</file>
+            <file>file:/home/phuong/PAWS/project/GestionDeBudget_Client/src/java/jsf/OprationBean.java</file>
+        </group>
+    </open-files>
+</project-private>

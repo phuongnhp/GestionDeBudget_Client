@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:jaxws="http://cxf.apache.org/jaxws"
+             xmlns:cxf="http://cxf.apache.org/core"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-3.1.xsd
+http://www.springframework.org/schema/jee
+http://www.springframework.org/schema/jee/spring-jee-2.0.xsd
+http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+    <global-method-security secured-annotations="enabled" />
+    <http auto-config="true" access-denied-page="/accessDenied.jsp">
+        <intercept-url pattern="/login.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https"/>
+        <intercept-url pattern="/logout.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https"/>
+        <intercept-url pattern="/sessionTimeout.html" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https"/>
+        <intercept-url pattern="/login-failure.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https"/>
+        <intercept-url pattern="/login-denied.jsp" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https"/>
+        <intercept-url pattern="/signup.xhtml" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="https"/>
+        <!--<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" requires-channel="any" />-->
+        <intercept-url pattern="/**" access="ROLE_USER" requires-channel="any" />
+        <form-login login-page="/login.jsp" default-target-url='/'
+                    always-use-default-target='true'
+                    authentication-failure-url="/login-failure.jsp"/>
+        <port-mappings>
+            <port-mapping http="8080" https="8181"/>
+        </port-mappings>
+        
+        <session-management invalid-session-url="/login-denied.jsp" session-authentication-error-url="/login-denied.jsp">
+            <concurrency-control max-sessions="1" error-if-maximum-exceeded="true" expired-url="/login-denied.jsp"/>
+        </session-management>
+
+        <logout logout-success-url="/logout.jsp"
+                invalidate-session="true" logout-url="/logout" 
+                delete-cookies="JSESSIONID" />
+    </http>
+    
+    <beans:bean id="customAuthenticationProvider" class="services.CustomAuthenticationProvider"></beans:bean>
+    <authentication-manager>
+        <authentication-provider ref="customAuthenticationProvider"/>
+    </authentication-manager>    
+    
+    <!--    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
+                <user name="phuong" password="123456789" authorities="ROLE_USER" />
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>-->
+    <!--    
+<jaxws:client id="calcul2"
+    serviceClass="service.ICalculService"
+    address="http://localhost:8080/GestionDeBudget_Webservice/CalculService/ICalculService?wsdl" />-->
+    
+<!--    <jaxws:client id="budget"
+                  serviceClass="service.budget.IBudgetService"
+                  address="http://localhost:8080/GestionDeBudget_Webservice/BudgetService/IBudgerService?wsdl" >
+        <jaxws:outInterceptors>
+            <ref bean="saajOut" />
+            <ref bean="wss4jOut" />
+        </jaxws:outInterceptors>
+    </jaxws:client>
+    
+     Interceptors 
+    <beans:bean id="logIn" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
+    <beans:bean id="logOut" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
+    <beans:bean id="saajOut" class="org.apache.cxf.binding.soap.saaj.SAAJOutInterceptor" />
+    <beans:bean id="wss4jOut" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+        <beans:constructor-arg>
+            <beans:map>
+                <beans:entry key="action" value="UsernameToken Timestamp" />
+                <beans:entry key="user" value="ws-client" />
+                <beans:entry key="passwordType" value="PasswordText" />
+                <beans:entry key="passwordCallbackClass" value="services.PWCallbackHandler" />
+            </beans:map>
+        </beans:constructor-arg>
+    </beans:bean>
+
+     The CXF Bus 
+    <cxf:bus>
+        <cxf:features>
+            <cxf:logging />
+        </cxf:features>
+        <cxf:inInterceptors>
+            <ref bean="logIn" />
+        </cxf:inInterceptors>
+        <cxf:outInterceptors>
+            <ref bean="logOut" />
+        </cxf:outInterceptors>
+        <cxf:inFaultInterceptors>
+            <ref bean="logIn" />
+        </cxf:inFaultInterceptors>
+        <cxf:outFaultInterceptors>
+            <ref bean="logOut" />
+        </cxf:outFaultInterceptors>
+    </cxf:bus>-->
+</beans:beans>

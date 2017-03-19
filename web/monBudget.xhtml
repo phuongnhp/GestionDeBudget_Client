@@ -1,0 +1,135 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/template.xhtml">
+
+    <ui:define name="content">
+        <div class="page-title">
+            <h2></h2>      
+        </div>
+        #{dataBean.init()}
+
+        <div class="row feature-ds">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h2>#{dataBean.totalRevenus}</h2>
+                    <h4>Revenus</h4>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h2>#{dataBean.totalDepenses}</h2>
+                    <h4>Dépenses</h4>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-box ">
+                    <h2>#{dataBean.totalRestant}</h2>
+                    <h4>Vous avez gagné</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h:form>
+                <div class="col-md-4">
+                    <p:outputLabel>De</p:outputLabel>
+                    <p:calendar value="#{dataBean.dateDeb}"/>
+                </div>
+                <div class="col-md-4">
+                    <p:outputLabel>A</p:outputLabel>
+                    <p:calendar value="#{dataBean.dateFin}"/>
+
+                </div>
+                <div class="col-md-4">
+                    <p:commandButton value="Chercher" actionListener="#{dataBean.filtrer()}" ajax="false" />
+                </div>
+            </h:form>
+        </div>
+        <br />
+        <div class="row">
+            <p:chart type="line" model="#{dataBean.lineModel}"/>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row chart-content">
+                    <p:chart type="pie" model="#{dataBean.pieModelR}" style="width:100%;height:300px" />
+                </div>
+
+                <div class="row table-content">
+                    <h1>Revenus</h1>
+                    <p:dataTable var="o" value="#{dataBean.revenus}" styleClass="dataTable">
+                        <p:column headerText="Date">
+                            <h:outputText value="#{o.dateOp}">
+                                <f:convertDateTime pattern="dd.MM.yy"/>
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Label">
+                            <h:outputText value="#{o.label}" />
+                        </p:column>
+
+                        <p:column headerText="Montant">
+                            <h:outputText value="#{o.montant}" />
+                        </p:column>
+
+                        <p:column headerText="Montant prévu">
+                            <h:outputText value="#{o.montantPrevu}" />
+                        </p:column>
+                        <p:column headerText="Actions">
+                            <p:commandButton action="#{dataBean.modifier(o.id)}" value="Modifier"></p:commandButton>
+                            <br/>
+                            <p:commandButton value="Supprimer"></p:commandButton>
+<!--                                <p:link value="Mod" outcome="#{dataBean.modifier(o.id)}"/>
+                            <br/>
+                            <p:link value="Sup"/>-->
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row chart-content">
+                    <p:chart type="pie" model="#{dataBean.pieModelD}" style="width:100%;height:300px" />
+                </div>
+
+                <div class="row table-content">
+                    <h1>Dépenses</h1>
+                    <p:dataTable var="o" value="#{dataBean.depenses}" styleClass="dataTable">
+                        <p:column headerText="Date">
+                            <h:outputText value="#{o.dateOp}">
+                                <f:convertDateTime pattern="dd.MM.yy"/>
+                            </h:outputText>
+                        </p:column>
+
+                        <p:column headerText="Label">
+                            <h:outputText value="#{o.label}" />
+                        </p:column>
+
+                        <p:column headerText="Montant">
+                            <h:outputText value="#{o.montant}" />
+                        </p:column>
+
+                        <p:column headerText="Montant prévu">
+                            <h:outputText value="#{o.montantPrevu}" />
+                        </p:column>
+                        <p:column headerText="Actions">
+                            <p:commandButton action="#{dataBean.modifier(o.id)}" value="Modifier"></p:commandButton>
+                            <br/>
+                            <p:commandButton value="Supprimer"></p:commandButton>
+<!--                                <p:link value="Mod" outcome="#{dataBean.modifier(o.id)}"/>
+                            <br/>
+                            <p:link value="Sup"/>-->
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </div>
+        <p:commandButton action="#{dataBean.creer()}" value="Ajouter une dépense/revenu" style="float:right"></p:commandButton>
+        <!--        <p:link value="Ajouter une dépense/revenu" outcome="operationCre" style="float:right"/>-->
+        <br/>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,100 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/template.xhtml">    
+    <ui:define name="heading">
+        
+    </ui:define>
+    <ui:define name="content">
+        <!--        <div class="ui-datatable-tablewrapper">
+                    <table role="grid">
+                        <thead id="j_idt10:j_idt15_head">
+                            <tr role="row">
+                                <th id="j_idt10:j_idt15:j_idt16" class="ui-state-default" role="columnheader">
+                                    <span class="ui-column-title">Utilisateur</span>
+                                </th>
+                                <th id="j_idt10:j_idt15:j_idt20" class="ui-state-default" role="columnheader">
+                                    <span class="ui-column-title">Droit</span>
+                                </th>
+                                <th id="j_idt10:j_idt15:j_idt29" class="ui-state-default" role="columnheader">
+                                    <span class="ui-column-title">Actions</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody id="j_idt10:j_idt15_data" class="ui-datatable-data ui-widget-content">
+                            <tr class="ui-widget-content ui-datatable-even">
+                                <td ><input value="Admin"/></td>
+                            </tr>
+                            <tr class="ui-widget-content ui-datatable-even">
+                                <td ><select>
+                                <option selected="true">Modification</option>
+                            </select></td>
+                            </tr>
+                            <tr class="ui-widget-content ui-datatable-even">
+                                <td ><a>Déactiver</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>-->
+        <table class="dataTable">
+            <thead>
+                <tr>
+                    <th>
+                        Utilisateur
+                    </th>
+                    <th>
+                        Droit
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Admin
+                    </td>
+                    <td>
+                        Modification
+                    </td>
+                    <td>
+                        <a>Déactiver</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table><!--
+        <p:dataTable styleClass="dataTable">
+            <p:column headerText="Utilisateur">
+                <h:outputText value="Admin" />
+            </p:column>
+    
+            <p:column headerText="Droit">
+                <h:outputText value="Modification" />
+            </p:column>
+            <p:column headerText="Actions">
+                <p:link value="Mod"/>
+                <br/>
+                <p:link value="Sup"/>
+            </p:column>
+        </p:dataTable>-->
+        <br/>
+        <h:form>
+            <p:outputLabel value="A qui?" />
+            <p:inputText value=""/>
+            <br/>
+            <p:outputLabel value="Droit" />
+            <p:selectOneMenu style="width:125px">
+                <f:selectItem itemLabel="Modifcation" itemValue="" />
+                <f:selectItem itemLabel="Consulter" itemValue="Xbox One" />
+            </p:selectOneMenu>
+            <br/>
+            <p:commandButton value="Appouver"/>
+            <br/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

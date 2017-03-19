@@ -1,0 +1,102 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/template.xhtml">
+    
+    <ui:define name="content">
+        <div class="page-title">
+            <h2></h2>      
+        </div>
+        #{dataBean.init()}
+        <div class="row feature-ds">
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h2>#{dataBean.totalRevenus}</h2>
+                    <h4>Revenus</h4>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-box">
+                    <h2>#{dataBean.totalDepenses}</h2>
+                    <h4>Dépenses</h4>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="feature-box ">
+                    <h2>#{dataBean.totalRestant}</h2>
+                    <h4>Vous avez gagné</h4>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="row">
+            <div class="col-md-4 chart-content">
+                <p:chart type="pie" widgetVar="budgetChart" model="#{dataBean.pieModel}" style="width:100%;height:300px" />
+            </div>
+
+            <div class="col-md-8 table-content">
+                <div class="span12">
+                    <div class="span6">
+                        <h1>Revenus</h1>
+                        <p:dataTable var="o" value="#{dataBean.revenus}" styleClass="dataTable">
+                            <p:column headerText="Date">
+                                <h:outputText value="#{o.dateOp}">
+                                    <f:convertDateTime pattern="dd.MM.yy"/>
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Label">
+                                <h:outputText value="#{o.label}" />
+                            </p:column>
+
+                            <p:column headerText="Type">
+                                <h:outputText value="#{o.opType}" />
+                            </p:column>
+
+                            <p:column headerText="Montant">
+                                <h:outputText value="#{o.montant}" />
+                            </p:column>
+
+                            <p:column headerText="Montant prévu">
+                                <h:outputText value="#{o.montantPrevu}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                    <div class="span6">                        
+                        <h1>Dépenses</h1>
+                        <p:dataTable var="o" value="#{dataBean.depenses}" styleClass="dataTable">
+                            <p:column headerText="Date">
+                                <h:outputText value="#{o.dateOp}">
+                                    <f:convertDateTime pattern="dd.MM.yy"/>
+                                </h:outputText>
+                            </p:column>
+
+                            <p:column headerText="Label">
+                                <h:outputText value="#{o.label}" />
+                            </p:column>
+
+                            <p:column headerText="Type">
+                                <h:outputText value="#{o.opType}" />
+                            </p:column>
+
+                            <p:column headerText="Montant">
+                                <h:outputText value="#{o.montant}" />
+                            </p:column>
+
+                            <p:column headerText="Montant prévu">
+                                <h:outputText value="#{o.montantPrevu}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h:link value="index" outcome="index" ></h:link>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="templates/template.xhtml">
+
+    <ui:define name="content">
+        <p:outputLabel value="Label" />
+        <p:inputText value=""/>
+        <br/>
+        <p:outputLabel value="Date" />
+        <p:calendar value="#{operationBean.dateOp}" />
+        <br/>
+        <p:outputLabel value="Montant" />
+        <p:inputText value=""/>
+        <br/>
+        <p:outputLabel value="Montant prévu" />
+        <p:inputText value=""/>
+        <br/>
+        <p:outputLabel value="Commentaire" />
+        <p:inputText value=""/>
+        <br/>
+        <h:link value="index" outcome="index" ></h:link>
+    </ui:define>
+
+</ui:composition>

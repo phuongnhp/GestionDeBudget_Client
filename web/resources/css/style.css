@@ -1,0 +1,187 @@
+.template{
+	background:#F0F0F0;
+}
+#header{
+	padding: 6px;
+    height: 100px;
+	background:#3f3f3f;
+}
+#topMain a{
+	position:relative;
+	text-align:center;
+	color:#fff;
+}
+#topMain a:after{
+	content: "";
+    position: absolute;
+    top: 8px;
+    right: -1px;
+    width: 1px;
+    height: 80%;
+    background: #fff;
+}
+.icon-ar {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    background-color: #fff;
+    color: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    text-align: center;
+    line-height: 2.2;
+}
+.icon-ar.icon-ar-lg {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    line-height: 2.2;
+}
+.icon-ar.icon-ar-inverse {
+    background-color: transparent;
+    color: #fff;
+    border: solid 1px #fff;
+}
+.icon-ar.icon-ar-round {
+	padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+#content{
+	float:left;
+	width:100%;
+	padding:20px;
+	height: calc(100vh - 126px);
+}
+
+/*
+#nav{
+	float:right;
+	width:10%;
+}
+*/
+
+#footer{
+	clear:both;
+	width:100%;
+	color:#fff;
+	background:#3f3f3f;
+	padding:5px 0;
+}
+
+
+.feature-box{
+    color: #fff;
+	margin:5px;
+	padding: 20px 10px;
+	position:relative;
+	box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24);
+}
+.feature-box .ui-progressbar{
+	height:5px;
+	margin: 10px 0;
+}
+
+.feature-box h2{
+	font-size: 32px;
+    font-weight: bold;
+    margin-bottom:10px;
+}
+
+.feature-box h4{
+	font-size: 28px;
+    margin-bottom:20px;
+}
+
+.feature-ds .col-md-4:nth-child(1) .feature-box{
+	background:#00a65a;
+}
+.feature-ds .col-md-4:nth-child(1) .feature-box:after{
+	position:absolute;
+	content:"";
+	top:0;
+	right:0;
+	display:block;
+	width:80px;
+	height:93px;
+	background-image:url("../resources/images/currency.png");
+	background-repeat: no-repeat;
+}
+.feature-ds .col-md-4:nth-child(2) .feature-box{
+	background:#f39c11;
+}
+.feature-ds .col-md-4:nth-child(2) .feature-box:after{
+	position:absolute;
+	content:"";
+	top:0;
+	right:0;
+	display:block;
+	width:88px;
+	height:93px;
+	background-image:url("../resources/images/clock.png");
+	background-repeat: no-repeat;
+}
+.feature-ds .col-md-4:nth-child(3) .feature-box{
+	background:#f66955;
+}
+.feature-ds .col-md-4:nth-child(3) .feature-box:after{
+	position:absolute;
+	content:"";
+	top:0;
+	right:0;
+	display:block;
+	width:80px;
+	height:93px;
+	background-image:url("../resources/images/currency-2.png");
+	background-repeat: no-repeat;
+}
+
+.ui-datatable.dataTable table thead tr th,
+.ui-datatable.dataTable table tbody tr td{
+	border: 0;
+    font-weight: lighter;
+    padding: 12px 16px 12px 8px;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(0,0,0,0.11);
+    font-size: 13px;
+    white-space: nowrap;
+    height: 32px;
+}
+.ui-datatable.dataTable table{
+	 display: table;
+}
+.ui-datatable.dataTable table thead{
+	background: #f7f7f7;
+}
+.ui-datatable.dataTable table thead tr{
+	height: 48px;
+}
+.ui-datatable.dataTable table thead tr th{
+	color: #808080;
+    font-weight: bold;
+    background: none;
+    text-align: left;
+    padding:0 10px;
+}
+.ui-datatable.dataTable table tbody,
+.ui-datatable.dataTable table tbody tr{
+	border-width: 0px;
+}
+.ui-datatable.dataTable {
+	
+box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24);
+}
+
+
+.ui-datatable.dataTable table tbody tr td{
+	border-width: 0px;
+}
+.table-content{
+	padding:22px;
+}
+.chart-content{
+	padding:15px;
+}

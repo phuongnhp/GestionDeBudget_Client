@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/GestionDeBudget/Utilisateur?WSDL" uri="wsdl/localhost_8080/GestionDeBudget/Utilisateur.wsdl"/>
+    <system systemId="http://localhost:8080/GestionDeBudget/Utilisateur?xsd=1" uri="wsdl/localhost_8080/GestionDeBudget/Utilisateur.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/GestionDeBudget_Webservice/CalculService/ICalculService?wsdl" uri="wsdl/localhost_8080/GestionDeBudget_Webservice/CalculService/ICalculService.wsdl"/>
+    <system systemId="http://localhost:8080/GestionDeBudget_Webservice/BudgetService/IBudgerService?wsdl" uri="wsdl/localhost_8080/GestionDeBudget_Webservice/BudgetService/IBudgerService.wsdl"/>
+    <system systemId="http://localhost:8080/GestionDeBudget_Webservice/Utilisateur?WSDL" uri="wsdl/localhost_8080/GestionDeBudget_Webservice/Utilisateur.wsdl"/>
+    <system systemId="http://localhost:8080/GestionDeBudget_Webservice/Utilisateur?xsd=1" uri="wsdl/localhost_8080/GestionDeBudget_Webservice/Utilisateur.xsd_1.xsd"/>
+</catalog>

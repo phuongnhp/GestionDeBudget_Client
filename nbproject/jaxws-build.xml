@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSGEN SECTION
+                ===================
+            -->
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-IBudgerService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/IBudgerService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/IBudgerService" destdir="${build.generated.dir}/jax-wsCache/IBudgerService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/IBudgerService/wsdl/localhost_8080/GestionDeBudget_Webservice/BudgetService/IBudgerService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/GestionDeBudget_Webservice/BudgetService/IBudgerService?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/IBudgerService/wsdl/localhost_8080/GestionDeBudget_Webservice/BudgetService/IBudgerService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/IBudgerService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/IBudgerService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-IBudgerService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/service/budget"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/IBudgerService"/>
+    </target>
+    <target name="wsimport-client-Utilisateur" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Utilisateur"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Utilisateur" destdir="${build.generated.dir}/jax-wsCache/Utilisateur" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/Utilisateur/wsdl/localhost_8080/GestionDeBudget_Webservice/Utilisateur.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/GestionDeBudget_Webservice/Utilisateur?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/Utilisateur/wsdl/localhost_8080/GestionDeBudget_Webservice/Utilisateur.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Utilisateur"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Utilisateur">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-Utilisateur" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/service/aut"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/Utilisateur"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-IBudgerService, wsimport-client-Utilisateur"/>
+</project>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://aut.service/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://aut.service/">
+
+<xs:element name="hello" type="tns:hello"/>
+
+<xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:element name="listerRoles" type="tns:listerRoles"/>
+
+<xs:element name="listerRolesResponse" type="tns:listerRolesResponse"/>
+
+<xs:element name="listerUtilisateurs" type="tns:listerUtilisateurs"/>
+
+<xs:element name="listerUtilisateursResponse" type="tns:listerUtilisateursResponse"/>
+
+<xs:element name="sInscrire" type="tns:sInscrire"/>
+
+<xs:element name="sInscrireResponse" type="tns:sInscrireResponse"/>
+
+<xs:element name="seConnecter" type="tns:seConnecter"/>
+
+<xs:element name="seConnecterResponse" type="tns:seConnecterResponse"/>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="seConnecter">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="mdp" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="seConnecterResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:utilisateur" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="utilisateur">
+<xs:sequence>
+<xs:element name="enabled" type="xs:int" minOccurs="0"/>
+<xs:element name="motdepasse" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sInscrire">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="mdp" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sInscrireResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listerUtilisateurs">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listerUtilisateursResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:utilisateur" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listerRoles">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listerRolesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
